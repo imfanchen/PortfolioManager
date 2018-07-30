@@ -1,5 +1,5 @@
 ## Description
-Portfolio Manager is an application built with [.Net Framework](https://docs.microsoft.com/en-us/dotnet/index) in C#. The purpose of this repository is to demonstrate some of the best practices of building a typical enterprise software for a financial service firm. 
+Portfolio Manager is an application built with [.NET Framework](https://docs.microsoft.com/en-us/dotnet/index) in C#. The purpose of this repository is to demonstrate some of the best practices of building a typical enterprise software for a financial service firm. 
 
 ## How To Run
 Portfolio Manger is curerntly build with .NET Framework 4.6.1 with DevExpress WPF Control and several third-party Nuget Packages. If you wish to build it locally, you will need to download and install [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) and [DevExpress Controls](https://go.devexpress.com/devexpressdownload_universaltrial.aspx). The good news is that any individual can use the **Community Version"" of Visual Studio 2017 free; read the the license term [here](https://visualstudio.microsoft.com/license-terms/mlt553321/). You can also install Devexpress Controls for 30 days trials; enought for you to test this app. Onnce you are ready, just open the solution file and click the **Start** to run the application in Debug mode.
