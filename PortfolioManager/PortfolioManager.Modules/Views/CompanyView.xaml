@@ -1,0 +1,139 @@
+﻿
+<UserControl
+    x:Class="PortfolioManager.Modules.Views.CompanyView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+    xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:PortfolioManager.Modules.ViewModels"
+    xmlns:views="clr-namespace:PortfolioManager.Modules.Views"
+    d:DataContext="{dxmvvm:ViewModelSource viewModels:CompanyViewModel}"
+    d:DesignHeight="500"
+    d:DesignWidth="600"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style x:Key="HeaderStyle" TargetType="TextBox">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Padding" Value="5,0,0,0" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Background" Value="DarkCyan" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="25" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBox
+            Grid.Row="0"
+            Style="{StaticResource HeaderStyle}"
+            Text="{Binding Caption}" />
+        <dxb:ToolBarControl Grid.Row="1">
+            <dxb:BarButtonItem
+                Command="{Binding RefreshCommand}"
+                Content="Refresh Data"
+                Glyph="{dx:DXImage Image=Refresh_16x16.png}"
+                KeyGesture="Ctrl+R" />
+            <dxb:BarEditItem
+                Alignment="Far"
+                BarItemDisplayMode="Content"
+                Content="{Binding Content}"
+                EditWidth="0" />
+        </dxb:ToolBarControl>
+        <dxlc:LayoutControl Grid.Row="2" Orientation="Vertical">
+            <dxlc:LayoutGroup Orientation="Horizontal">
+                <dxlc:LayoutGroup
+                    Header="Company Information"
+                    Orientation="Vertical"
+                    View="GroupBox">
+                    <dxlc:LayoutItem Label="Company Name">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding CompanyData.CompanyName}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Exchange">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding CompanyData.Exchange}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Issuer Type">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding CompanyData.IssuerType}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Sector">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding CompanyData.Sector}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Industry">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding CompanyData.Industry}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Website">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding CompanyData.Website}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Description" LabelVerticalAlignment="Top">
+                        <dxe:TextEdit
+                            MinHeight="230"
+                            VerticalContentAlignment="Top"
+                            IsReadOnly="True"
+                            Text="{Binding CompanyData.Description}"
+                            TextWrapping="Wrap" />
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+                <dxlc:LayoutGroup
+                    Header="Quote Information"
+                    Orientation="Vertical"
+                    View="GroupBox">
+                    <dxlc:LayoutItem Label="Market Cap">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding QuoteData.MarketCap}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="P/E Ratio">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding QuoteData.PERatio}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Open">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding QuoteData.Open}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Close">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding QuoteData.Close}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="High">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding QuoteData.High}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Low">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding QuoteData.Low}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Latest Price">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding QuoteData.LatestPrice}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Latest Volume">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding QuoteData.LatestVolume}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Latest Source">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding QuoteData.LatestSource}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Previous Close">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding QuoteData.PreviousClose}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Change">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding QuoteData.Change}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Change %">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding QuoteData.ChangePercent}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="52 Week High">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding QuoteData.Week52High}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="52 Week Low">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding QuoteData.Week52Low}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="YTD Change %">
+                        <dxe:TextEdit IsReadOnly="True" Text="{Binding QuoteData.YTDChange}" />
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+            </dxlc:LayoutGroup>
+        </dxlc:LayoutControl>
+    </Grid>
+</UserControl>
